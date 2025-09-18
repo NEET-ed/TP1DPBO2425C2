@@ -10,6 +10,8 @@ int main() {
     int choice;
 
     do {
+
+        // Print menu
         cout << "\nMenu Toko Elektronik:" << endl;
         cout << "1. Tambah Data" << endl;
         cout << "2. Tampilkan Data" << endl;
@@ -20,6 +22,7 @@ int main() {
         cout << "Pilih menu: ";
         cin >> choice;
 
+        // Error Handling cpp input
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -27,12 +30,15 @@ int main() {
             continue;
         }
 
+        // deklarasi var utk dimasuk ke class
         string nama, jenis, merek;
         double harga;
         int id, foundIndex = -1;
+        size_t i;
 
         switch (choice) {
-            case 1: // Tambah Data
+            case 1: 
+            // Tambah Data
                 cout << "Masukkan nama barang: ";
                 cin.ignore();
                 getline(cin, nama);
@@ -47,11 +53,13 @@ int main() {
                 cout << "Data berhasil ditambahkan!" << endl;
                 break;
 
-            case 2: // Tampilkan Data
+            case 2: 
+            // Tampilkan Data
                 if (daftarBarang.empty()) {
+                    // kasus no data
                     cout << "Tidak ada data yang tersedia." << endl;
                 }else{
-
+                    // var utk kolom tabel
                     int wId = 5, wNama = 10, wJenis = 10, wMerek = 10, wHarga = 12;
 
                     for (auto& barang : daftarBarang) {
@@ -62,42 +70,35 @@ int main() {
 
                     // Cetak header tabel
                     cout << string(wId + wNama + wJenis + wMerek + wHarga + 10, '-') << endl;
-                    cout << left 
-                        << setw(wId) << "ID"
-                        << setw(wNama) << "Nama"
-                        << setw(wJenis) << "Jenis"
-                        << setw(wMerek) << "Merek"
-                        << setw(wHarga) << "Harga" 
-                        << endl;
+                    cout << left << setw(wId) << "ID" << setw(wNama) << "Nama" << setw(wJenis) << "Jenis" << setw(wMerek) << "Merek" << setw(wHarga) << "Harga"  << endl;
                     cout << string(wId + wNama + wJenis + wMerek + wHarga + 10, '-') << endl;
 
                     // Cetak isi tabel
                     for (auto& barang : daftarBarang) {
-                        cout << left 
-                            << setw(wId) << barang.getId()
-                            << setw(wNama) << barang.getNama()
-                            << setw(wJenis) << barang.getJenis()
-                            << setw(wMerek) << barang.getMerek()
-                            << "Rp. " << fixed << setprecision(0) << barang.getHarga()
-                            << endl;
+                        cout << left << setw(wId) << barang.getId() << setw(wNama) << barang.getNama() << setw(wJenis) << barang.getJenis() << setw(wMerek) << barang.getMerek() << "Rp. " << fixed << setprecision(0) << barang.getHarga() << endl;
                     }
                     cout << string(wId + wNama + wJenis + wMerek + wHarga + 10, '-') << endl;
                 }
                 break;
 
-            case 3: // Ubah Data
+            case 3: 
+            // Ubah Data
                 cout << "Masukkan ID barang yang akan diubah: ";
                 cin >> id;
 
                 foundIndex = -1;
-                for (size_t i = 0; i < daftarBarang.size(); ++i) {
+                i = 0;
+                while (i < daftarBarang.size()) {
                     if (daftarBarang[i].getId() == id) {
                         foundIndex = i;
                         break;
                     }
+                    i++;
                 }
 
+
                 if (foundIndex != -1) {
+                    // input data yang akan di-update
                     cout << "Masukkan nama baru: ";
                     cin.ignore();
                     getline(cin, nama);
@@ -118,17 +119,22 @@ int main() {
                 }
                 break;
             
-            case 4: // Hapus Data
+            case 4: 
+            // Hapus Data
                 cout << "Masukkan ID barang yang akan dihapus: ";
                 cin >> id;
-
+                
+                // cari data
                 foundIndex = -1;
-                for (size_t i = 0; i < daftarBarang.size(); ++i) {
+                i = 0;
+                while (i < daftarBarang.size()) {
                     if (daftarBarang[i].getId() == id) {
                         foundIndex = i;
                         break;
                     }
+                    i++;
                 }
+
 
                 if (foundIndex != -1) {
                     daftarBarang.erase(daftarBarang.begin() + foundIndex);
@@ -138,18 +144,24 @@ int main() {
                 }
                 break;
 
-            case 5: // Cari Data
+            case 5: 
+            // Cari Data
                 cout << "Masukkan ID barang yang dicari: ";
                 cin >> id;
 
+                // cari data
                 foundIndex = -1;
-                for (size_t i = 0; i < daftarBarang.size(); ++i) {
+                i = 0;
+                while (i < daftarBarang.size()) {
                     if (daftarBarang[i].getId() == id) {
                         foundIndex = i;
                         break;
                     }
+                    i++;
                 }
 
+
+                // print data jika ditemukan
                 if (foundIndex != -1) {
                     cout << "--------------------------------------------------------" << endl;
                     cout << "Data Ditemukan:" << endl;
@@ -164,8 +176,9 @@ int main() {
                 }
                 break;
             
-            case 6: // Keluar
-                cout << "Program selesai." << endl;
+            case 6: 
+            // Keluar
+                cout << "Program selesai. Sampai jumpa!" << endl;
                 break;
 
             default:

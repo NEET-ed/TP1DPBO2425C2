@@ -20,7 +20,7 @@ class BarangElektronik {
             this->harga = harga;
         }
 
-        // Setters
+        // fungsi set (id otomatis)
         void setNama(string nama) {
             this->nama = nama;
         }
@@ -34,7 +34,7 @@ class BarangElektronik {
             this->harga = harga;
         }
 
-        // Getters
+        // fungsi get
         int getId() {
             return this->id;
         }
@@ -49,5 +49,9 @@ class BarangElektronik {
         }
         double getHarga() {
             return this->harga;
+        }
+        
+        // Destructor
+        ~BarangElektronik(){
         }
 };
