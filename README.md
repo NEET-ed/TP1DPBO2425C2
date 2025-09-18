@@ -1,5 +1,3 @@
-Repositori ini berisi implementasi program manajemen data toko elektronik menggunakan konsep **OOP & Enkapsulasi** dalam empat bahasa pemrograman: C++, Java, Python, dan PHP. Tugas ini dibuat untuk memenuhi Ujian Praktikum pada MK **Desain dan Pemrograman Berorientasi Objek (DPBO)** tahun ajaran 2024/2025.
-
 ## Janji
 _Saya Nurul Atiqah dengan NIM 2406279 mengerjakan soal Tugas Praktikum 1 "OOP dan Enkapsulasi" dalam mata kuliah Desain Pemrograman Berbasis Objek untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin._
 
@@ -82,8 +80,6 @@ Alur program secara umum mengikuti pola Create, Read, Update, Delete, Search (CR
 | <img src="dokumentasi/java-edit.png" width="320"> | <img src="dokumentasi/java-delete.png" width="320"> |
 
 ---
-
-### PHP
 
 ### PHP
 
